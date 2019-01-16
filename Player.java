@@ -1,4 +1,3 @@
-package testProject;
 import java.util.*;
 
 public class Player {
