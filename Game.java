@@ -23,8 +23,10 @@ public class Game {
 		System.out.println("Please enter the amount of players: ");
 		int input = myScanner.nextInt();
 		for(int i = 0; i < input; i++) {
+			System.out.println("Player " + (i+1) + " name:");
 			String name = myScanner.next();
-			players.add(new Player("Player " + (i+1)));
+				players.add(new Player(name));
+			
 		}
 		return players;
 	}
@@ -51,7 +53,7 @@ public class Game {
 			}
 		}
 		if(tie == players.size()) {
-			System.out.println("No players are able to reach the Finish. Everyone loses!");
+			System.out.println("All geese are stuck or dead. Everyone loses!");
 			return true;
 		}
 		tie = 0;

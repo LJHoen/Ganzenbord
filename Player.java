@@ -37,11 +37,12 @@ public class Player {
 			skip -= 1;
 		} else if(position + roll > 63) {
 			position = 63 - (position + roll - 63);
-			if(doubleCheck(position)) {
-				position -= roll;
-			}
 			System.out.println(name + " tries to run past Finish and bounces back to " 
 					+ position);
+			if(doubleCheck(position)) {
+				System.out.println(name + " lands on position " + position + " and moves another " + roll + " steps" );	
+				position -= roll;
+			}
 		} else if(position + roll == 25 || position + roll == 45 || position + roll == 58) {
 			position = 0;
 			System.out.println(name + " needs to move waaaaaay back to Start.");
@@ -66,6 +67,7 @@ public class Player {
 		} else {
 			position += roll;
 			if(doubleCheck(position)) {
+				System.out.println(name + " lands on position " + position + " and moves another " + roll + " steps" );				
 				position += roll;
 			}
 		}
