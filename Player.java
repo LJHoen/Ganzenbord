@@ -17,7 +17,8 @@ public class Player {
 		trapped = false;
 		winner = false;
 	}
-	
+
+//Rol een willekeurig getal tussen 1 en 6	
 	public int roll() {
 		Random random = new Random();
 		int roll = 0;
@@ -26,12 +27,12 @@ public class Player {
 		}
 		return roll;
 	}
-	
+
+//Pas de positie van de speler aan op basis van de rol en pas de effecten van bijzondere tegels toe.	
 	public void move(int roll) {
 		if(skip == 0) {
 			System.out.println(name + " rolled " + roll);
 		}
-		
 		if(skip > 0) {
 			skip -= 1;
 		} else if(position + roll > 63) {
@@ -72,6 +73,7 @@ public class Player {
 		}
 	}
 	
+//Controleer of de speler op één van de speciale tegels landt die een verdubbeling van het gerolde aantal ogen toepast
 	public boolean doubleCheck(int position) {
 		int[] doubleMove = {10, 20, 30, 40, 50, 60};
 		for(int i = 0; i < doubleMove.length; i++) {
@@ -82,6 +84,7 @@ public class Player {
 		return false;
 	}		
 	
+//Print tekst op basis van de positie van de speler	
 	public void position() {
 	
 		if(position == 0) {

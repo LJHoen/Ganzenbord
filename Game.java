@@ -1,7 +1,9 @@
 import java.util.*;
 
 public class Game {
-	
+
+//Maak lijsten aan voor de spelers en de put, houd het gespeelde aantal rondes bij
+//Speel rondes tot de de variabele gameOver true wordt, beëindig dan de loop	
 	public static void main(String[] args) {
 		ArrayList<Player> players = start();
 		ArrayList<Integer> well = new ArrayList<Integer>();
@@ -15,7 +17,7 @@ public class Game {
 			roundNum++;
 		}
 	}	
-	
+//start het spel door aan te geven hoeveel spelers aan het spel deelnemen en wat de naam is van iedere speler
 	public static ArrayList<Player> start() {
 		Scanner myScanner = new Scanner(System.in);
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -29,7 +31,11 @@ public class Game {
 		}
 		return players;
 	}
-	
+//Geef per speler aan wat zijn startpositie deze beurt is, wat zijn rol is en wat zijn eindpositie is. 
+//Sla spelers over die geen beurt hebben
+//Pauzeer 1 seconde tussen beurten van spelers
+//Controleer of nog verder gespeeld kan worden en controleer of er een winnaar is
+//Als niet verder gespeeld kan worden, of er is een winnaar, return dan true
 	public static boolean nextRound(ArrayList<Player> players, ArrayList<Integer> well) {	
 		int tie = 0;		
 		for(int i = 0; i < players.size(); i++) {
@@ -58,7 +64,8 @@ public class Game {
 		tie = 0;
 		return false;
 	}
-	
+
+//Als iemand in de put valt, bevrijd dan de speler in de put die het langst erin zit uit de put en voeg denieuwe speler toe.	
 	public static void wellFall(ArrayList<Integer> well, ArrayList<Player> players, int playerNum) {
 		if(well.size() > 0) {
 			System.out.println(players.get(well.get(0)) + " is freed from the well as " + players.get(playerNum) + " falls in.");
